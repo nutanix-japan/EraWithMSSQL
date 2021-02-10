@@ -114,14 +114,14 @@ This will give you an opportunity to learn to use HammerDB tool and prepare you 
    .. note::
       If you close HammerDB, populating of data will stop
 
-#. Go to the drives ``E\data``, ``F:\data``, ``F:\data``, ``I:\logs`` and check if the size of the folders is increasing.
+#. Go to the drives ``D:\data``, ``D:\data1``, ``D:\data2``, ``D:\logs`` and check if the size of the folders is increasing.
 
 #. Wait until the data gets generated. This generates up to 15GB of data.
 
    .. note::
       It may take from 15 - 20 minutes for data population
 
-#. Once the data is generated, open hammer db that is already minimized.
+#. Once the data is generated, open hammer db that is already minimised.
 
 #. Click on Destroy Virtual Users.
 
@@ -155,69 +155,72 @@ This will give you an opportunity to learn to use HammerDB tool and prepare you 
 #. Take screenshots and send TPM results to prospective customers or use it for your own reference.
 
 
-Database Test 2 (without best practices on SQL)
-+++++++++++++++++++++++++++++++++++++++++++++++
+Database Test 2 (with best practices on SQL by Era)
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Let's simulate a scenario where best practices for MS SQL databases are not followed. In this screnario the data and log files for a SQL database is in the same drive.
+Repeat the above steps for a *Initials*\ -MSSQL2 server with database and log files on different drives and record the results.
 
-#. Repeat the same procedure for another database.
+..
+.. Let's simulate a scenario where best practices for MS SQL databases are not followed. In this screnario the data and log files for a SQL database is in the same drive.
+..
+.. #. Repeat the same procedure for another database.
+..
+.. #. Name the datbase **tpcc1**
+..
+.. #. For tpcc1, set path to ``E:\data``.
+..
+.. #. For tpcc1_log, set path to ``E:\logs``. (create logs folder)
+..
+.. #. Populate the database with data using the same procedure as above in HammerDB.
+..
+.. #. Wait for the data to be populated
+..
+..    .. note::
+..       It may take from 15 - 20 minutes for data population
+..
+.. #. Confirm data is populated using the same procedure as above.
+..
+.. #. Click on Destroy Virtual Users.
+..
+..    .. figure:: images/destroyvirtusers.png
+..
+.. #. Double click on **Driver Script > Options**. Make sure **SQL Server Database** name is **tpcc1** (the database you created in the previous few steps).
+..
+.. #. Select "TPC-C driver script" as **Timed Driver Script**.
+..
+.. #. Leave rest of them as-is and select **OK**.
+..
+..    .. note::
+..     **Optional:** You can also try using the option **Keying and thinking time** for making the IOPS more intensive.
+..
+..    .. figure:: images/drvscript.png
+..
+.. #. Double click on **Load**
+..
+.. #. Go to **Virtual users** and click on **Options**.
+..
+.. #. Make sure **Virtual users** in the popped-up window is 17 and click **OK**
+..
+.. #. Double click on **Create** and then double click on **Run** operations.\
+..
+..    .. figure:: images/setvirtusers.png
+..
+.. #. While IO is getting generated, click on **Transactions Counter** and note the **TPM**. (Start the TPM counter if not already started)
+..
+..    .. figure:: images/singletpm.png
+..
+.. #. Take screenshots and send TPM results to prospective customers or use it for your own reference.
+..
+..    .. note::
+..       You should now notice that a database configured withouth following best practices performs slower than the database created following best practices.
+..       In this case, the database **tpcc1** is four times slower than database **tpcc**.
+..
+..    .. note::
+..       Please note that the test used here are using heavy I/O. Consider changing them in your own test to suit customers workloads.
+..
+Also check the **I/O Metrics** in Prism Element for this VM to see if you can observe I/O patterns, latencies, SSD/HDD usage and block sizes of files used by the VM you are running HammerDB tests on.
 
-#. Name the datbase **tpcc1**
-
-#. For tpcc1, set path to ``E:\data``.
-
-#. For tpcc1_log, set path to ``E:\logs``. (create logs folder)
-
-#. Populate the database with data using the same procedure as above in HammerDB.
-
-#. Wait for the data to be populated
-
-   .. note::
-      It may take from 15 - 20 minutes for data population
-
-#. Confirm data is populated using the same procedure as above.
-
-#. Click on Destroy Virtual Users.
-
-   .. figure:: images/destroyvirtusers.png
-
-#. Double click on **Driver Script > Options**. Make sure **SQL Server Database** name is **tpcc1** (the database you created in the previous few steps).
-
-#. Select "TPC-C driver script" as **Timed Driver Script**.
-
-#. Leave rest of them as-is and select **OK**.
-
-   .. note::
-    **Optional:** You can also try using the option **Keying and thinking time** for making the IOPS more intensive.
-
-   .. figure:: images/drvscript.png
-
-#. Double click on **Load**
-
-#. Go to **Virtual users** and click on **Options**.
-
-#. Make sure **Virtual users** in the popped-up window is 17 and click **OK**
-
-#. Double click on **Create** and then double click on **Run** operations.\
-
-   .. figure:: images/setvirtusers.png
-
-#. While IO is getting generated, click on **Transactions Counter** and note the **TPM**. (Start the TPM counter if not already started)
-
-   .. figure:: images/singletpm.png
-
-#. Take screenshots and send TPM results to prospective customers or use it for your own reference.
-
-   .. note::
-      You should now notice that a database configured withouth following best practices performs slower than the database created following best practices.
-      In this case, the database **tpcc1** is four times slower than database **tpcc**.
-
-   .. note::
-      Please note that the test used here are using heavy I/O. Consider changing them in your own test to suit customers workloads.
-
-#. Also check the **I/O Metrics** in Prism Element to see if you can observe I/O patterns, latencies, SSD/HDD usage and block sizes of files used by the VM you are running HammerDB tests on.
-
-   .. figure:: images/vmiopattern.png
+.. figure:: images/vmiopattern.png
 
 Takeaways
 ++++++++++
