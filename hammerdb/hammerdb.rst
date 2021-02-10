@@ -20,9 +20,9 @@ Lab Agenda
 Install HammerDB
 ++++++++++++++++++++
 
-#. Select your *Initials*-MSSQL-Manual VM and click **Actions > Power On**.
+#. Select your *UserXX*-MSSQLSource VM and click **Actions > Power On**. (if not already powered on)
 
-#. Log in to the VM using Remote Desktop Client/Console using the Administrator password you configured in **Manual VM Deployment** in :ref:`deploy_mssql` lab.
+#. Log in to the VM using Remote Desktop Client/Console using the Administrator password you configured in :ref:`deploy_mssql` lab.
 
 #. Download the HammerDB setup binaries on your VM from `here <http://10.42.194.11/workshop_staging/HammerDB/HammerDB-3.3-Win-x86-64-Setup.exe>`_. (Copy link address)
 
@@ -52,10 +52,10 @@ This will give you an opportunity to learn to use HammerDB tool and prepare you 
 
    ::
 
-     E:\data
-     F:\data
-     G:\data
-     I:\logs
+     D:\data
+     D:\data1
+     D:\data2
+     D:\logs
 
 #. Right click on databases and select **New database**.
 
@@ -65,17 +65,15 @@ This will give you an opportunity to learn to use HammerDB tool and prepare you 
 
 #. In the Database files table, scroll and select the path for tpcc and tpcc_log folder.
 
-#. For tpcc, set path to ``E:\data``.
+#. For tpcc, set path to ``D:\data``.
 
-#. For tpcc_log, set path to ``I:\logs``.
+#. For tpcc_log, set path to ``D:\logs``.
 
 #. Click on **Add** button twice to create two more database files.
 
-#. Name them as **tpcc_f** and **tpcc_g**.
+#. Name them as **tpcc_d1** and **tpcc_d2**.
 
-#. Set the path for two files as ``F:\data`` and ``G:\data``.
-
-   .. figure:: images/newdbpath.png
+#. Set the path for two files as ``D:\data1`` and ``D:\data2``.
 
 #. To make sure the tables are created properly, right click on **tpcc** DB and select properties. Click on **Files** and make sure the path of the folders are set right.
 
